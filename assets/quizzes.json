@@ -1,45 +1,132 @@
 {
     "quizes": [
         {
-            "question": "asda dasd asd adsasd as",
+            "question": "Jakiej sekcji NIE ma w kole naukowym \"BIT\"?",
             "answers": [
                 {
-                    "content": "Answer A", 
+                    "content": "BIT AI",
+                    "correct": false
+                },
+                {
+                    "content": "BIT JAVA",
+                    "correct": false
+                },
+                {
+                    "content": "BIT MATHS",
+                    "correct": false
+                },
+                {
+                    "content": "BIT JAVA SCRIPT",
+                    "correct": true
+                }
+
+            ]
+        },
+        {
+            "question": "Jaką zlozonosc obliczeniowa ma algorytm Dijkstry, zakladając ze implementujemy go uzywając zwyklej kolejki (E - liczba krawedzi, V - liczba wierzcholkow)",
+            "answers": [
+                {
+                    "content": "O(V^2*log(E))",
+                    "correct": false
+                },
+                {
+                    "content": "O(V^2)",
                     "correct": true
                 },
                 {
-                    "content": "Answer B", 
+                    "content": "O(V*log(E))",
                     "correct": false
                 },
                 {
-                    "content": "Answer C", 
+                    "content": "O(log(E)^2)",
+                    "correct": false
+                }
+
+            ]
+        },{
+            "question": "ktory z tych protokolow nie dziala na protokole IPv6?",
+            "answers": [
+                {
+                    "content": "TCP",
                     "correct": false
                 },
                 {
-                    "content": "Answer D", 
+                    "content": "ARP",
+                    "correct": true
+                },
+                {
+                    "content": "ICMP",
+                    "correct": false
+                },
+                {
+                    "content": "UDP",
                     "correct": false
                 }
 
             ]
         },
         {
-            "question": "Question 2 Question 2 Question 2",
+            "question": "ktory z tych protokolow zapobiega powstaniu petli w sieci (w warstwie 2)?",
             "answers": [
                 {
-                    "content": "Answeasdr A", 
+                    "content": "UDP",
                     "correct": false
                 },
                 {
-                    "content": "Answeasdr B", 
+                    "content": "Ethernet",
                     "correct": false
                 },
                 {
-                    "content": "Answasder C", 
+                    "content": "ARP",
                     "correct": false
                 },
                 {
-                    "content": "Answasder D", 
+                    "content": "STP",
                     "correct": true
+                }
+
+            ]
+        },
+        {
+            "question": "ktorego z kierunkow NIE MA na WIEiT'cie?",
+            "answers": [
+                {
+                    "content": "Nowoczesne Technologie w Kryminalistyce",
+                    "correct": false
+                },
+                {
+                    "content": "Elektronika",
+                    "correct": false
+                },
+                {
+                    "content": "Data Science",
+                    "correct": false
+                },
+                {
+                    "content": "Cyberbezpieczenstwo i Telekomunikacja",
+                    "correct": true
+                }
+
+            ]
+        },
+        {
+            "question": "Zjawisko zaglodzenia w programie wspolbieznym jest",
+            "answers": [
+                {
+                    "content": "stanem, w ktorym kazdy proces oczekuje na dzialanie innego procesu",
+                    "correct": false
+                },
+                {
+                    "content": "przejawem braku bezpieczenstwa programu wspolbieznego",
+                    "correct": false
+                },
+                {
+                    "content": "stanem, w ktorym proces czekajacy na dane zdarzenie nie zostaje wznowiony mimo, ze wystepuje ono dowolna liczbe razy",
+                    "correct": true
+                },
+                {
+                    "content": "Poprawnym stanem programu, nie wpływajacym na szybkosc wykonywanego procesu",
+                    "correct": false
                 }
 
             ]
