@@ -1,0 +1,50 @@
+{
+    "quizes": [
+        {
+            "question": "asda dasd asd adsasd as",
+            "answers": [
+                {
+                    "content": "Answer A", 
+                    "correct": true
+                },
+                {
+                    "content": "Answer B", 
+                    "correct": false
+                },
+                {
+                    "content": "Answer C", 
+                    "correct": false
+                },
+                {
+                    "content": "Answer D", 
+                    "correct": false
+                }
+
+            ]
+        },
+        {
+            "question": "Question 2 Question 2 Question 2",
+            "answers": [
+                {
+                    "content": "Answeasdr A", 
+                    "correct": false
+                },
+                {
+                    "content": "Answeasdr B", 
+                    "correct": false
+                },
+                {
+                    "content": "Answasder C", 
+                    "correct": false
+                },
+                {
+                    "content": "Answasder D", 
+                    "correct": true
+                }
+
+            ]
+        }
+    ]
+
+
+}
