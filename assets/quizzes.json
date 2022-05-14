@@ -130,6 +130,28 @@
                 }
 
             ]
+        },
+        {
+            "question": "co oznacza kod 500 w odpowiedzi protokolu HTTP?",
+            "answers": [
+                {
+                    "content": "OK, dane w porzadku",
+                    "correct": false
+                },
+                {
+                    "content": "bad gateway",
+                    "correct": false
+                },
+                {
+                    "content": "server not found",
+                    "correct": false
+                },
+                {
+                    "content": "server internal error",
+                    "correct": true
+                }
+
+            ]
         }
     ]
 
