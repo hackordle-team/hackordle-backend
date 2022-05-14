@@ -80,12 +80,12 @@ def new_client(ws):
 
             return
 
-        data_json = json.load(data)
+        data_json = json.loads(data)
 
         matches[ws].send(data)
 
         if data_json['status'] == 'win' or data_json['status'] == 'lose':
-            ws.close();
+            ws.close()
             matches[ws].close()
             del matches[matches[ws]]
             del matches[ws]
