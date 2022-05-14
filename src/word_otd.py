@@ -1,4 +1,4 @@
-from flask import json, jsonify
+from flask import json
 import random
 import datetime
 
@@ -9,7 +9,7 @@ def get_word_otd():
     seed = int(datetime.datetime.now().date().strftime("%Y%m%d"))
     random.seed(seed)
     word = random.choice(custom_dictionary['dictionary'])
-    return jsonify({
+    return {
         "word_otd": word
-    })
+    }
 
