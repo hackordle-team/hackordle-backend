@@ -1,28 +1,26 @@
 from flask import Flask, jsonify, json
 from flask_cors import CORS
-from src.utils import *
+
+from src.dictionary import get_dictionary
+from src.quizzes import get_quizzes
+from src.word_otd import get_word_otd
 
 app = Flask(__name__)
 CORS(app)
 
-dictionary_path = 'assets/dictionary.json'
-quizes_path = 'assets/quizes.json'
-custom_dictionary_path = 'assets/custom_dictionary.json'
-dictionary = json.load(open(dictionary_path))
-quizes = json.load(open(quizes_path))
-custom_dictionary = json.load(open(custom_dictionary_path))
+
 
 @app.route('/dictionary')
-def get_dictionary():
-    return dictionary
+def route_dictionary():
+    return get_dictionary()
 
-@app.route('/quizes')
-def get_quizes():
-    return quizes
+@app.route('/quizzes')
+def route_quizzes():
+    return get_quizzes()
 
 @app.route('/word_otd')
-def get_word_otd():
-    return choose_word(custom_dictionary)
+def route_word_otd():
+    return get_word_otd()
 
 
 @app.route('/')
