@@ -1,13 +1,23 @@
+from time import sleep
 from flask import Flask
 from flask_cors import CORS
+from flask_sock import Sock
+
+from threading import Thread
 
 from src.dictionary import get_dictionary
 from src.quizzes import get_quizzes
 from src.word_otd import get_word_otd
+from src.websocket import new_client, create_match_manager
 
 app = Flask(__name__)
 CORS(app)
+sock = Sock(app)
 
+
+@sock.route('/multiplayer')
+def route_ws_test(ws):
+    new_client(ws)
 
 
 @app.route('/dictionary')
@@ -30,4 +40,10 @@ def homepage():
     """
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    kill_thread = create_match_manager()
+    try:
+        app.run(use_reloader=True)
+    finally:
+        kill_thread()
+
+    
