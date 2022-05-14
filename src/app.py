@@ -9,6 +9,6 @@ dictionary = json.load(open(dictionary_path))
 def get_dictionary():
     return dictionary
 
-if __name__ == '__main__':
+def main():
     app.run(debug=True, use_reloader=True)
 
