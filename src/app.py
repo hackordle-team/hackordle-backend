@@ -1,20 +1,13 @@
-from flask import Flask, jsonify
-
-
+from flask import Flask, jsonify, json
 app = Flask(__name__)
 
+dictionary_path = 'assets/dictionary.json'
+
+dictionary = json.load(open(dictionary_path))
+
 @app.route('/dictionary')
-def dictionary():
-    data = {
-        "dictionary" : [
-            "word1",
-            "word2",
-            "word3",
-            "word4",
-            "word5",
-        ]
-    }
-    return jsonify(data)
+def get_dictionary():
+    return dictionary
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
