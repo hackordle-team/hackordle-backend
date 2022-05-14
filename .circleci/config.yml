@@ -26,7 +26,10 @@ jobs:
 workflows:
   test_my_app:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: main # only deploy when on main
       - deploy:
           requires:
             - build # only deploy if the build_and_test job has completed
