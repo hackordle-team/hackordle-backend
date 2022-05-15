@@ -1,4 +1,6 @@
 from threading import Thread, Lock
+from src.word_otd import custom_dictionary
+import random
 import json
 import time
 
@@ -63,8 +65,10 @@ class MatchManager:
 
     @staticmethod
     def start_match(player1, player2):
+        word = random.choice(custom_dictionary['dictionary'])
         message = {
-            "type": "start"
+            "type": "start",
+            "word": word
         }
 
         player1.send(json.dumps(message))
