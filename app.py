@@ -40,10 +40,11 @@ def homepage():
     """
 
 if __name__ == '__main__':
-    kill_thread = create_match_manager()
+    #kill_thread = create_match_manager()
     try:
         app.run(use_reloader=True)
     finally:
-        kill_thread()
+        pass
+        #kill_thread()
 
     

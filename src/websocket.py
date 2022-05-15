@@ -1,12 +1,16 @@
 from threading import Thread, Lock
 import json
 import time
+import sys
 pending = []
 pending_mutex = Lock()
 
 matches = {}
 
-
+# logging helper
+def log(*args):
+    print (args[0] % (len(args) > 1 and args[1:] or []))
+    sys.stdout.flush()
 
 def start_match(player1, player2):
     message = {
@@ -18,7 +22,7 @@ def start_match(player1, player2):
 
 
 def match_players():
-    time.sleep(1)
+    #time.sleep(1)
     pending_mutex.acquire()
     player1 = None
     player2 = None
@@ -47,8 +51,7 @@ def kill():
     end_thread = True
 
 def match_manager():
-    while not end_thread:
-        match_players()
+    match_players()
 
 match_manager_thread = None
 def create_match_manager():
@@ -62,17 +65,23 @@ def create_match_manager():
 
 
 def new_client(ws):
+    log("[{}] New client".format(ws))
     pending_mutex.acquire()
     try:
         pending.append(ws)
+        log("[{}] Added ws to pending".format(ws))
     finally:
         pending_mutex.release()
-
+    log("[{}] Calling match manager".format(ws))
+    match_manager()
+    log("[{}] Match manager called".format(ws))
     while True:
         try:
+            log("[{}] Waiting for messsage".format(ws))
             data = ws.receive()
+            log("[{}] Got message".format(ws))
         except:
-            
+            log("[{}] closed ws".format(ws))
             if ws in matches:
                 matches[ws].close()
                 del matches[matches[ws]]
@@ -82,6 +91,7 @@ def new_client(ws):
 
         data_json = json.loads(data)
 
+        log("[{}] sends message".format(ws))
         matches[ws].send(data)
 
         if data_json['status'] == 'win' or data_json['status'] == 'lose':
