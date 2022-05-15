@@ -42,11 +42,6 @@ def homepage():
     """
 
 if __name__ == '__main__':
-    # match_manager.create_match_manager()
-    # kill_thread = create_match_manager()
-    try:
-        app.run(use_reloader=True)
-    finally:
-        match_manager.kill()
+    app.run(use_reloader=True)
 
     
