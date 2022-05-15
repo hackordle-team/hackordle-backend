@@ -139,7 +139,7 @@ class MatchManager:
         player1 = None
         player2 = None
         try:
-            log("pending:")
+            log("{} pending:".format(self.pending))
             for pend in self.pending:
                 log("    {}".format(pend))
             #self.pending = list(filter(lambda x: x.connected, self.pending))
