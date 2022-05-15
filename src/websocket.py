@@ -67,8 +67,8 @@ class MatchManager:
             "type": "start"
         }
 
-        player1.send(message)
-        player2.send(message)
+        player1.send(json.dumps(message))
+        player2.send(json.dumps(message))
 
     def __del__(self):
         pass#self.kill()
