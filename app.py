@@ -47,7 +47,8 @@ if __name__ == '__main__':
     try:
         app.run(use_reloader=True)
     finally:
-        match_manager.kill()
+        pass
+        #match_manager.kill()
 
 
     
