@@ -16,7 +16,7 @@ def start_match(player1, player2):
     message = {
         "type": "start"
     }
-
+    log("Sending messages")
     player1.send(message)
     player2.send(message)
 
@@ -42,6 +42,7 @@ def match_players():
     matches[player1] = player2
     matches[player2] = player1
 
+    log("Starting match")
     start_match(player1, player2)
 
 
@@ -65,6 +66,7 @@ def create_match_manager():
 
 
 def new_client(ws):
+    ws.send("SIEMA IEMA SIEMA")
     log("[{}] New client".format(ws))
     pending_mutex.acquire()
     try:
