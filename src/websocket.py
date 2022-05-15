@@ -42,7 +42,11 @@ class MatchManager:
         player1 = None
         player2 = None
         try:
-            self.pending = list(filter(lambda x: x.connected, self.pending))
+            log("Manager[{}] {} pending:".format(self, self.pending))
+            for pend in self.pending:
+                log("    {}".format(pend))
+            #self.pending = list(filter(lambda x: x.connected, self.pending))
+
             if len(self.pending) < 2:
                 return
             player1 = self.pending.pop()
