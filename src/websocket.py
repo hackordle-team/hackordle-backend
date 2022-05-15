@@ -23,20 +23,33 @@ def start_match(player1, player2):
 
 def match_players():
     #time.sleep(1)
+    log("Acquiring mutex")
     pending_mutex.acquire()
     player1 = None
     player2 = None
+    log("Starting try")
     try:
         global pending
+        
+        log("pending:")
+        for pend in pending:
+            log("    {}".format(pend))
+        log("Clearing pending")
         pending = list(filter(lambda x: x.connected, pending))
+        log("Cleared pending")
+        log("pending:")
+        for pend in pending:
+            log("    {}".format(pend))
         if len(pending) < 2:
             return
         player1 = pending.pop()
         player2 = pending.pop()
+        log("Players: {} {}".format(player1, player2))
     except IndexError:
-        print("Index error")
+        log("Index error")
         return
     finally:
+        log("releasing mutex")
         pending_mutex.release()
 
     matches[player1] = player2
@@ -44,6 +57,7 @@ def match_players():
 
     log("Starting match")
     start_match(player1, player2)
+    log("Started match")
 
 
 end_thread = False
