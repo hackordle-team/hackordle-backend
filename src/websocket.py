@@ -90,6 +90,10 @@ import time
 #             del matches[matches[ws]]
 #             del matches[ws]
 #
+import sys
+def log(*args):
+    print( args[0] % (len(args) > 1 and args[1:] or []))
+    sys.stdout.flush()
 
 class MatchManager:
     def __init__(self):
@@ -98,7 +102,7 @@ class MatchManager:
         self.matches = {}
         self.end_thread = False
         self.match_manager_thread = None
-        self.create_match_manager()
+        #self.create_match_manager()
 
     def new_client(self, ws):
         self.pending_mutex.acquire()
@@ -106,7 +110,7 @@ class MatchManager:
             self.pending.append(ws)
         finally:
             self.pending_mutex.release()
-
+        self.match_manager()
         while True:
             try:
                 data = ws.receive()
@@ -130,11 +134,14 @@ class MatchManager:
                 del self.matches[ws]
 
     def match_players(self):
-        time.sleep(1)
+        #time.sleep(1)
         self.pending_mutex.acquire()
         player1 = None
         player2 = None
         try:
+            log("pending:")
+            for pend in self.pending:
+                log("    {}".format(pend))
             self.pending = list(filter(lambda x: x.connected, self.pending))
             if len(self.pending) < 2:
                 return
@@ -158,8 +165,8 @@ class MatchManager:
         self.end_thread = True
 
     def match_manager(self):
-        while not self.end_thread:
-            self.match_players()
+        #while not self.end_thread:
+        self.match_players()
 
     @staticmethod
     def start_match(player1, player2):
@@ -171,4 +178,4 @@ class MatchManager:
         player2.send(message)
 
     def __del__(self):
-        self.kill()
+        pass#self.kill()
