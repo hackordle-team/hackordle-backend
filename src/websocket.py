@@ -102,6 +102,7 @@ class MatchManager:
         self.matches = {}
         self.end_thread = False
         self.match_manager_thread = None
+        self.counter = 0
         #self.create_match_manager()
 
     def new_client(self, ws):
@@ -135,6 +136,8 @@ class MatchManager:
 
     def match_players(self):
         #time.sleep(1)
+        self.counter += 1
+        log("Counter = {}".format(self.counter))
         self.pending_mutex.acquire()
         player1 = None
         player2 = None
